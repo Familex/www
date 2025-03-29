@@ -1,0 +1,24 @@
+# whitelist gitignore
+/*
+!.gitignore
+
+# doc
+!README.md
+!LICENSE
+
+# sources
+!Cargo.toml
+!Cargo.lock
+!/template/
+!/src/
+
+# dev
+!devenv.nix
+!devenv.yaml
+!devenv.lock
+!.envrc
+
+
+# Added by cargo
+
+/target
