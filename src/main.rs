@@ -34,7 +34,7 @@ async fn main() -> anyhow::Result<()> {
 }
 
 fn app() -> anyhow::Result<Router> {
-    let tera = Tera::new("template/**/*.tera")?;
+    let tera = Tera::new("template/**/*.jinja")?;
     Ok(Router::new()
         .route("/", get(route::index::index))
         .with_state(AppState {

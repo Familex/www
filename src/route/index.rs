@@ -4,5 +4,5 @@ use axum_template::RenderHtml;
 use serde_json::json;
 
 pub async fn index(State(AppState { engine, .. }): State<AppState>) -> impl IntoResponse {
-    RenderHtml("index.tera", engine, json!({}))
+    RenderHtml("index.jinja", engine, json!({}))
 }

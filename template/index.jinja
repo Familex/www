@@ -1,0 +1,31 @@
+{% extends "__base__.jinja" %}
+
+{% block content %}
+<div class="space-y-4">
+  <h1 class="uk-hero-sm text-center font-bold">DOOM: Spotify (last.fm)</h1>
+  <div class="flex justify-center gap-x-2">
+    <a class="uk-btn uk-btn-primary" href="https://franken-ui.dev/docs/introduction">
+      Learn
+    </a>
+    <a class="uk-btn uk-btn-default" href="https://github.com/franken-ui" target="_blank">
+      Follow
+    </a>
+  </div>
+
+  <uk-theme-switcher>
+    <select hidden>
+      <optgroup data-key="mode" label="Mode">
+        <option data-icon="sun" value="light">Light</option>
+        <option data-icon="moon" value="dark">Dark</option>
+      </optgroup>
+    </select>
+  </uk-theme-switcher>
+
+<div class="flex justify-center">
+  <div class="uk-rounded uk-shadow border border-border p-3">
+    <uk-calendar></uk-calendar>
+  </div>
+</div>
+
+</div>
+{% endblock content %}

@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<body class="bg-background text-foreground">
+  <div class="uk-container mt-40">
+    {% block content %}{% endblock content %}
+  </div>
+</body>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>www</title>
 
+  {# from https://github.com/franken-ui/template-html #}
   <style>
     :root {
       font-family: Inter, sans-serif;
@@ -20,11 +27,24 @@
     }
   </style>
 
-  <!-- For stability in production, it's recommended that you hardcode the latest version in the CDN link. -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/franken-ui@2.0.0/dist/css/core.min.css"
+  >
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/franken-ui@2.0.0/dist/css/utilities.min.css"
+  >
+  <script
+    type="module"
+    src="https://unpkg.com/franken-ui@2.0.0/dist/js/core.iife.js"
+  ></script>
+  <script
+    type="module"
+    src="https://unpkg.com/franken-ui@2.0.0/dist/js/icon.iife.js"
+  ></script>
 
-  <link rel="stylesheet" href="https://unpkg.com/franken-ui@next/dist/css/core.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/franken-ui@next/dist/css/utilities.min.css">
-
+  {# from https://franken-ui.dev/docs/2.0/theming #}
   <script>
     const htmlElement = document.documentElement;
 
@@ -49,24 +69,9 @@
     htmlElement.classList.add(__FRANKEN__.chart || "uk-chart-default");
   </script>
 
-  <script type="module" src="https://unpkg.com/franken-ui@next/dist/js/core.iife.js"></script>
-
   {% block head %}{% endblock head %}
 
   <title>{% block title %}{% endblock title %} — www</title>
 </head>
-
-<body class="bg-background text-foreground">
-  <div class="uk-container mt-40">
-    {% block content %}{% endblock content %}
-  </div>
-
-  <script type="module" src="https://unpkg.com/franken-ui@next/dist/js/icon.iife.js"></script>
-
-  <!-- <script
-      type="module"
-      src="https://unpkg.com/franken-ui@next/dist/js/chart.iife.js"
-    ></script> -->
-</body>
 
 </html>
