@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<body class="bg-background text-foreground">
-  <div class="uk-container mt-40">
-    {% block content %}{% endblock content %}
-  </div>
-</body>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>www</title>
+
+  <title>{% block title %}{% endblock title %} — www</title>
 
   {# from https://github.com/franken-ui/template-html #}
   <style>
@@ -70,8 +65,12 @@
   </script>
 
   {% block head %}{% endblock head %}
-
-  <title>{% block title %}{% endblock title %} — www</title>
 </head>
+
+<body class="bg-background text-foreground">
+  <div class="uk-container mt-40">
+    {% block content %}{% endblock content %}
+  </div>
+</body>
 
 </html>

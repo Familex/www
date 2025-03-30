@@ -11,6 +11,7 @@
 !Cargo.lock
 !/template/
 !/src/
+!/asset/
 
 # dev
 !devenv.nix

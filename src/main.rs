@@ -36,7 +36,8 @@ async fn main() -> anyhow::Result<()> {
 fn app() -> anyhow::Result<Router> {
     let tera = Tera::new("template/**/*.jinja")?;
     Ok(Router::new()
-        .route("/", get(route::index::index))
+        .route("/", get(route::home::index))
+        .route("/asset/{*file}", get(route::asset))
         .with_state(AppState {
             engine: Engine::from(tera),
         })

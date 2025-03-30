@@ -1,0 +1,53 @@
+{% extends "__base__.jinja" %}
+
+{% block title %} Home {% endblock title %}
+
+{% block head %}
+{% endblock head %}
+
+{% block content %}
+<div class="uk-card space-y-4 p-8">
+  <div class="flex">
+    <div class="flex-1">
+      <h1 class="uk-hero-sm font-bold mb-2">Familex</h1>
+      <div class="flex flex-wrap flex-row gap-2">
+      {% for link in links %}
+        <a href="{{ link.link }}">
+        <div class="flex items-center gap-1">
+          <span class="uk-label">
+            {% if link.icon %}
+              <uk-icon icon="{{ link.icon }}"></uk-icon>
+            {% else %}
+              <img src="{{ link.icon_file }}" width="12" height="12" data-uk-svg />
+            {% endif %}
+            / {{ link.short_link }}
+          </span>
+        </div>
+        </a>
+      {% endfor %}
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-y-1.5">
+      <div class="uk-inline">
+        <button class="uk-btn uk-btn-default uk-btn-icon">
+          <uk-icon icon="palette"></uk-icon>
+        </button>
+        <div
+          class="uk-card uk-card-body uk-drop"
+          data-uk-drop="mode: click; offset: 8"
+        >
+          <uk-theme-switcher>
+            <select hidden>
+              <optgroup data-key="mode" label="Mode">
+                <option data-icon="sun" value="light">Light</option>
+                <option data-icon="moon" value="dark">Dark</option>
+              </optgroup>
+            </select>
+          </uk-theme-switcher>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
